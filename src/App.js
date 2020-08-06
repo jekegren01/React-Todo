@@ -26,7 +26,8 @@ class App extends React.Component {
             completed: !todo.completed
           };
         }
-        setTimeout(console.log(this.state.todos), 5000);
+        // setTimeout(console.log(this.state.todos), 5000);
+        // console.log(this.state.todos)
         return todo;
       })
     });
@@ -61,6 +62,8 @@ class App extends React.Component {
 
 
   render() {
+    console.log(this.state.todos)
+
     return (
       <div className='container'>
         <div className='header'>
