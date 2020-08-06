@@ -32,6 +32,7 @@ class App extends React.Component {
             completed: !todo.completed
           };
         }
+        setTimeout(console.log(this.state.todos), 5000);
         return todo;
       })
     });
@@ -47,6 +48,7 @@ class App extends React.Component {
     this.setState({
       todos: [...this.state.todos, newTodo]
     });
+    console.log(newTodo);
   };
 
   clearCompleted = e => {
@@ -64,7 +66,7 @@ class App extends React.Component {
           <h2>Welcome to your Todo App!</h2>
           <TodoForm addTodo={this.addTodo}/>
         </div>
-        
+
           <TodoList
             todos={this.state.todos}
             toggleTodo={this.toggleTodo}
