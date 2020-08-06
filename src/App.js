@@ -3,13 +3,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import './components/Todo.css';
 
-const todos = [
-  {
-  name: '',
-  id: '',
-  completed: false
-}
-];
+const todos = [];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -58,19 +52,26 @@ class App extends React.Component {
     });
   };
 
+  clearAll = e => {
+    e.preventDefault();
+    this.setState({
+      todos: this.state.todos.filter(todos => !todos)
+    });
+  };
+
 
   render() {
     return (
-      <div>
-        <div>
+      <div className='container'>
+        <div className='header'>
           <h2>Welcome to your Todo App!</h2>
           <TodoForm addTodo={this.addTodo}/>
         </div>
-
           <TodoList
             todos={this.state.todos}
             toggleTodo={this.toggleTodo}
             clearCompleted={this.clearCompleted}
+            clearAll={this.clearAll}
           />
       </div>
     );
